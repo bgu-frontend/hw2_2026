@@ -1,0 +1,14 @@
+# Local working dirs (not for students)
+tmp/
+upload-to-google-forms.gs
+
+# dependencies
+**/node_modules
+backend/log.txt
+backend/.env
+backend/package-lock.json
+frontend/package-lock.json
+
+# editors
+.vscode/
+.DS_Store
