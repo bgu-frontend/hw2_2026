@@ -254,7 +254,7 @@ export default defineConfig({
             - a new "save" button appears, with `name` attribute `"text_input_save-<note_id>"`.
             - a new "cancel" button appears, with `name` attribute `"text_input_cancel-<note_id>"`.
     - Delete button:
-        - `name` attribute `"delete-<note_id>"`.
+        - `data-testid` (previously `name`) attribute `"delete-<note_id>"`.
         - when clicked, the frontend updates by refreshing the same page.
         - we will not test the scenario in which a delete operation empties the current page (and then we might need to change a page).
 - Update notes: for consistency with Playwright standards, please replace the note's `id` HTML attribute  with `data-testid`.
