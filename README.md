@@ -150,6 +150,8 @@ db.collection.find().sort({ _id: -1 })  // Newest first
 - **Backend - Jest:** 4 tests, one for each action in CRUD, write them in `crud.test.ts`. Your test should pass after running `npm run test` from the backend directory. Notice that the test runs the backend server by default.
 - **Package.json should support these aliases.** You can replace the command after the colon, but not the alias names `start`, `dev`, `test`.
 
+> Backend test setup: keep the backend in CommonJS to avoid a known Jest pitfall. Do not add `"type": "module"` to `backend/package.json`, and if you write a `tsconfig.json`, use `"module": "commonjs"` (not `"nodenext"` or `"esnext"`). Inside `crud.test.ts`, import with `const x = require('...')`. Jest's built-in transform handles `.ts` files with no extra configuration: you do not need `ts-jest` or any `jest.config` file. If you switch to ESM (`"type": "module"` plus `import` syntax) you will likely hit `SyntaxError: Cannot use import statement outside a module`; revert to CommonJS rather than chasing `--experimental-vm-modules` flags.
+
 ```json
   "scripts": {
     "start": "node server.ts", ### (start the backend in normal mode)
